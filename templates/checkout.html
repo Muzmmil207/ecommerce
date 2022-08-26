@@ -1,0 +1,311 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block contain %}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shopping Cart</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-sidebar">
+                    <h2 class="sidebar-title">Search Products</h2>
+                    <form action="">
+                        <input type="text" placeholder="Search products...">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+
+                <div class="single-sidebar">
+                    <h2 class="sidebar-title">Products</h2>
+                    <div class="thubmnail-recent">
+                        <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                        <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                        <div class="product-sidebar-price">
+                            <ins>$700.00</ins> <del>$100.00</del>
+                        </div>
+                    </div>
+                    <div class="thubmnail-recent">
+                        <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                        <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                        <div class="product-sidebar-price">
+                            <ins>$700.00</ins> <del>$100.00</del>
+                        </div>
+                    </div>
+                    <div class="thubmnail-recent">
+                        <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                        <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                        <div class="product-sidebar-price">
+                            <ins>$700.00</ins> <del>$100.00</del>
+                        </div>
+                    </div>
+                    <div class="thubmnail-recent">
+                        <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                        <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                        <div class="product-sidebar-price">
+                            <ins>$700.00</ins> <del>$100.00</del>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single-sidebar">
+                    <h2 class="sidebar-title">Recent Posts</h2>
+                    <ul>
+                        <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
+                        <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
+                        <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
+                        <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
+                        <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+                        <div class="woocommerce-info">Returning customer? <a class="showlogin" data-toggle="collapse"
+                                href="#login-form-wrap" aria-expanded="false" aria-controls="login-form-wrap">Click here
+                                to login</a>
+                        </div>
+
+                        <form id="login-form-wrap" class="login collapse" method="post">
+
+
+                            <p>If you have shopped with us before, please enter your details in the boxes below. If you
+                                are a new customer please proceed to the Billing &amp; Shipping section.</p>
+
+                            <p class="form-row form-row-first">
+                                <label for="username">Username or email <span class="required">*</span>
+                                </label>
+                                <input type="text" id="username" name="username" class="input-text">
+                            </p>
+                            <p class="form-row form-row-last">
+                                <label for="password">Password <span class="required">*</span>
+                                </label>
+                                <input type="password" id="password" name="password" class="input-text">
+                            </p>
+                            <div class="clear"></div>
+
+
+                            <p class="form-row">
+                                <input type="submit" value="Login" name="login" class="button">
+                                <label class="inline" for="rememberme"><input type="checkbox" value="forever"
+                                        id="rememberme" name="rememberme"> Remember me </label>
+                            </p>
+                            <p class="lost_password">
+                                <a href="#">Lost your password?</a>
+                            </p>
+
+                            <div class="clear"></div>
+                        </form>
+
+                        <div class="woocommerce-info">Have a coupon? <a class="showcoupon" data-toggle="collapse"
+                                href="#coupon-collapse-wrap" aria-expanded="false"
+                                aria-controls="coupon-collapse-wrap">Click here to enter your code</a>
+                        </div>
+
+                        <form id="coupon-collapse-wrap" method="post" class="checkout_coupon collapse">
+
+                            <p class="form-row form-row-first">
+                                <input type="text" value="" id="coupon_code" placeholder="Coupon code"
+                                    class="input-text" name="coupon_code">
+                            </p>
+
+                            <p class="form-row form-row-last">
+                                <input type="submit" value="Apply Coupon" name="apply_coupon" class="button">
+                            </p>
+
+                            <div class="clear"></div>
+                        </form>
+                        <div>
+                            <table cellspacing="0" class="shop_table cart">
+                                <thead>
+                                    <tr>
+                                        <th class="product-remove">&nbsp;</th>
+                                        <th class="product-thumbnail">&nbsp;</th>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-subtotal">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in items %}
+                                    <tr class="cart_item">
+                                        <td class="product-remove">
+                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                        </td>
+
+                                        <td class="product-thumbnail">
+                                            <a href="single-product.html"><img width="145" height="145"
+                                                    alt="poster_1_up" class="shop_thumbnail"
+                                                    src="{{item.product.imageURL}}"></a>
+                                        </td>
+
+                                        <td class="product-name">
+                                            <a href="single-product.html">{{item.product.name}}</a>
+                                        </td>
+
+                                        <td class="product-price">
+                                            <span class="amount">${{item.product.price|floatformat:2}}</span>
+                                        </td>
+
+                                        <td class="product-quantity">
+                                            <div class="quantity buttons_added">
+                                                <input type="number" size="4" class="input-text qty text" title="Qty"
+                                                    value="{{item.quantity}}" min="0" step="1">
+                                            </div>
+                                        </td>
+
+                                        <td class="product-subtotal">
+                                            <span class="amount">${{item.get_total}}</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <td class="actions" colspan="6">
+                                            <div class="coupon">
+                                                <h4 for="coupon_code">Items: {{order.get_cart_items}}</h4>
+                                                <h4 for="coupon_code">Total: ${{order.get_cart_total}}</h4>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <form id="form" class="checkout" name="checkout" method="post">
+                            {% csrf_token %}
+                            <div id="shipping-info">
+                                {{form}}
+                            </div>
+
+                            <h3 id="order_review_heading">Your order</h3><!-- YOUR ORDER -->
+
+                            <div id="order_review" style="position: relative;">
+                                <div id="payment">
+                                    <ul class="payment_methods methods">
+                                        <li class="payment_method_bacs">
+                                            <input type="radio" data-order_button_text="" checked="checked" value="bacs"
+                                                name="payment_method" class="input-radio" id="payment_method_bacs">
+                                            <label for="payment_method_bacs">Direct Bank Transfer </label>
+                                            <div class="payment_box payment_method_bacs">
+                                                <p>Make your payment directly into our bank account. Please use your
+                                                    Order ID as the payment reference. Your order won’t be shipped until
+                                                    the funds have cleared in our account.</p>
+                                            </div>
+                                        </li>
+                                        <li class="payment_method_cheque">
+                                            <input type="radio" data-order_button_text="" value="cheque"
+                                                name="payment_method" class="input-radio" id="payment_method_cheque">
+                                            <label for="payment_method_cheque">Cheque Payment </label>
+                                            <div style="display:none;" class="payment_box payment_method_cheque">
+                                                <p>Please send your cheque to Store Name, Store Street, Store Town,
+                                                    Store State / County, Store Postcode.</p>
+                                            </div>
+                                        </li>
+                                        <li class="payment_method_paypal">
+                                            <input type="radio" data-order_button_text="Proceed to PayPal"
+                                                value="paypal" name="payment_method" class="input-radio"
+                                                id="payment_method_paypal">
+                                            <label for="payment_method_paypal">PayPal <img alt="PayPal Acceptance Mark"
+                                                    src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"><a
+                                                    title="What is PayPal?"
+                                                    onclick="javascript:window.open('https://www.paypal.com/gb/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"
+                                                    class="about_paypal"
+                                                    href="https://www.paypal.com/gb/webapps/mpp/paypal-popup">What is
+                                                    PayPal?</a>
+                                            </label>
+                                            <div style="display:none;" class="payment_box payment_method_paypal">
+                                                <p>Pay via PayPal; you can pay with your credit card if you don’t have a
+                                                    PayPal account.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <div class="form-row place-order">
+                                        <input type="submit" id="place-order" name="checkout_place_order"
+                                            class="button alt">
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var form = document.getElementById('form')
+    var shipping = '{{order.shipping}}'
+    var total = '{{order.get_cart_total}}'
+    var url = '/process-order/'
+
+    if (shipping == 'False') {
+        document.getElementById('shipping-info').innerHTML = ''
+    }
+    console.log(shipping)
+
+    document.getElementById('place-order').addEventListener('click', function (e) {
+        submitFormData()
+    })
+    function submitFormData() {
+        console.log('pyment button clicked...')
+
+        var userFormData = {
+            'name': null,
+            'email': null,
+            'total': total
+        }
+        var shippingInfo = {
+            'Country': null,
+            'address': null,
+            'city': null,
+            'state': null,
+            'zipcode': null,
+        }
+        if (shipping != 'False') {
+            Country = form.Country.value
+            shippingInfo.address = form.address.value
+            shippingInfo.city = form.city.value
+            shippingInfo.state = form.state.value
+            shippingInfo.zipcode = form.zipcode.value
+        }
+        if (user == 'AnonmousUser') {
+            userFormData.name = form.name.value
+            userFormData.city = form.city.value
+
+        }
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'X-CSRFToken': csrftoken
+            },
+            body: JSON.stringify({ 'form': userFormData, 'shipping': shippingInfo }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success: ', data);
+                alert('Transaction complete');
+                window.location.href = "{% url 'home' %}"
+            })
+    }
+</script>
+{% endblock %}

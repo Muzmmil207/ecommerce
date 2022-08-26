@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block contain %}
+<br><br><br><br><br>
+<div class="container">
+    <div class="container">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if page == 'LoginView' %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">User name</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">LOGIN</button>
+        </form>
+        <br><br><br><br><br>
+        
+        {% else %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+            {{form.as_p}}
+            </div>
+            <button type="submit" class="btn btn-primary">REGISTER</button>
+        </form>
+    <br><br><br><br><br>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
